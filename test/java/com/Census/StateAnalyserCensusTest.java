@@ -8,7 +8,6 @@ public class StateAnalyserCensusTest {
 			+ "\\IndiaStateCensusData.csv";
 	public static final String WRONG_STATE_CENSUS_DATA_FILE = "F:\\Capgemini_training1\\java_eclipse\\IndiaStateCensusAnalyser"
 			+ "\\IndiaStateCensusData.cv";
-	public static final String WRONG_DATA_IN_CENSUS_FILE = "F:\\Capgemini_training1\\java_eclipse\\IndiaStateCensusAnalyser\\IndiaStateCensusDataDelimiter.csv";
 
 	public static final String WRONG_HEADER_IN_CENSUS_FILE = "F:\\Capgemini_training1\\java_eclipse\\IndiaStateCensusAnalyser\\IndiaStateCode.csv";
 
