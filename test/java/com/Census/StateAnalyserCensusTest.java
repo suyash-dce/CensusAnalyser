@@ -10,6 +10,7 @@ public class StateAnalyserCensusTest {
 			+ "\\IndiaStateCensusData.cv";
 	public static final String WRONG_DATA_IN_CENSUS_FILE = "F:\\Capgemini_training1\\java_eclipse\\IndiaStateCensusAnalyser\\IndiaStateCensusDataDelimiter.csv";
 
+	public static final String WRONG_HEADER_IN_CENSUS_FILE = "F:\\Capgemini_training1\\java_eclipse\\IndiaStateCensusAnalyser\\IndiaStateCode.csv";
 	public static final String WRONG_STATE_CENSUS_DATA_FILE_TYPE = "F:\\Capgemini_training1\\java_eclipse\\IndiaStateCensusAnalyser"
 			+ "\\IndiaStateCensusData.txt";
 
@@ -40,6 +41,24 @@ public class StateAnalyserCensusTest {
 			Assert.assertEquals(CustomCensusAnalyserException.ExceptionType.IncorrectData, e.type);
 		}
 	}
+	public void whenFileHeaderIsImproperShouldThrowCustomException() throws IOException {
+		StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+		try {
+			int totalEntriesInCsvFile = stateCensusAnalyser.loadCsvData(WRONG_HEADER_IN_CENSUS_FILE);
+		} catch (CustomCensusAnalyserException e) {
+			Assert.assertEquals(CustomCensusAnalyserException.ExceptionType.IncorrectData, e.type);
+		}
+	}
+
+
+	@Test
+	public void whenFileTypeIsImproperShouldThrowCustomException() throws IOException {
+		StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+		try {
+			int totalEntriesInCsvFile = stateCensusAnalyser.loadCsvData(WRONG_STATE_CENSUS_DATA_FILE);
+		} catch (CustomCensusAnalyserException e) {
+			Assert.assertEquals(CustomCensusAnalyserException.ExceptionType.IncorrectCsvFile, e.type);
+		}
 
 	@Test
 	public void whenNumberOfRecordMatchesShouldPassTest() {
