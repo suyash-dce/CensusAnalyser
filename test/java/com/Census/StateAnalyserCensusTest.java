@@ -41,8 +41,6 @@ public class StateAnalyserCensusTest {
 			Assert.assertEquals(CustomCensusAnalyserException.ExceptionType.IncorrectData, e.type);
 		}
 	}
-
-
 	public void whenFileHeaderIsImproperShouldThrowCustomException() throws IOException {
 		StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
 		try {
@@ -61,5 +59,11 @@ public class StateAnalyserCensusTest {
 		} catch (CustomCensusAnalyserException e) {
 			Assert.assertEquals(CustomCensusAnalyserException.ExceptionType.IncorrectCsvFile, e.type);
 		}
+
+	@Test
+	public void whenNumberOfRecordMatchesShouldPassTest() {
+		StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+		int totalEntriesInCsvFile = stateCensusAnalyser.loadCsvData(STATE_CENSUS_DATA_FILE);
+		Assert.assertEquals(29, totalEntriesInCsvFile);
 	}
 }
