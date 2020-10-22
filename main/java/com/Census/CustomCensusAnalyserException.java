@@ -1,6 +1,6 @@
 public class CustomCensusAnalyserException extends Exception {
 	enum ExceptionType {
-		IncorrectCsvFile;
+		IncorrectCsvFile, IncorrectData;
 	}
 	ExceptionType type;
 	public CustomCensusAnalyserException(String message, ExceptionType type) {
